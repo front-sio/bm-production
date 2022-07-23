@@ -1,9 +1,18 @@
 from django.shortcuts import render, redirect
-from bm.models import Appointment, Package, Category, Team
+from bm.models import Appointment, Package, Category, Team, Gallery
 
 
 from django.http import JsonResponse
 import json
+
+def Homepage(request):
+    # gallery = Gallery.objects.all()
+    # ctxt = {
+    #     'galleries': gallery,
+    # }
+
+    return render(request, 'appoint/index.html')
+
 
 
 def Services(request):
@@ -23,14 +32,16 @@ def Packages(request, pk):
     }
     return render(request, 'appoint/packages.html', ctxt)
 
-def Homepage(request):
-    return render(request, 'appoint/index.html')
 
 def Contact(request):
     return render(request, 'appoint/contact.html')
 
 
 def Gallery(request):
+    # gallery = Gallery.objects.all()
+    # ctxt = {
+    #     'galleries': gallery,
+    # }
     return render(request, 'appoint/gallery.html')
 
 def About(request):

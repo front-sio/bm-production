@@ -44,3 +44,9 @@ class Team(models.Model):
     image = models.ImageField(upload_to='images/team__images/', verbose_name="image")
 
 
+class Gallery(models.Model):
+    name = models.CharField(max_length=100, null=True, verbose_name="Gallery name")
+    image = models.ImageField(upload_to="images/gallery__images/", verbose_name="Gallery image", null=True)
+    detail = models.TextField(verbose_name="gallery descriptions", null=True)
+
+
