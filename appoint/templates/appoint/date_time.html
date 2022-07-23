@@ -1,0 +1,40 @@
+{% extends 'appoint/base.html' %} 
+
+{% block content %}
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container px-md-0">
+        <div class="row d-flex no-gutters">
+            <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
+                <div class="contact-wrap w-100 p-md-5 p-4">
+                    <h3 class="mb-4 heading">Get in touch</h3>
+                    <form method="POST" action="{% url 'user-info' %}" id="contactForm" name="contactForm" class="contactForm">
+                        {% csrf_token %} 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="date">Appointment date</label>
+                                    <input type="date" class="form-control" name="date" id="date" placeholder="Date">
+                                </div>
+                            </div>
+                            <div class="col-md-6"> 
+                                <div class="form-group">
+                                    <label class="label" for="time">Appoinment time</label>
+                                    <input type="time" class="form-control" name="time" id="time" placeholder="Time">
+                                </div>
+                            </div>
+                            <input required hidden type="text" name="package_id" id="package_id" value="{{ package.id }}">
+                            <input required hidden type="text" name="category_id" id="category_id" value="{{ category_id}}">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="submit" value="Continue" class="btn btn-primary">
+                                    <div class="submitting"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+           
+</section>
+
+{% endblock %}

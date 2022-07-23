@@ -1,0 +1,78 @@
+{% extends 'appoint/base.html' %} 
+
+{% block content %}
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container px-md-0">
+        <div class="row d-flex no-gutters">
+            <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
+                <div class="contact-wrap w-100 p-md-5 p-4">
+                    <h3 class="mb-4 heading">Get in touch</h3>
+                    <form method="POST" action="{% url 'confirm' %}" id="contactForm" name="contactForm" class="contactForm">
+                        {% csrf_token %} 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="first_name">Enter first_name</label>
+                                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="last_name">Enter last name</label>
+                                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="email">Enter email</label>
+                                    <input type="text" class="form-control" name="email" id="email" placeholder="email">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="phone">Enter phone</label>
+                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="phone">
+                                </div>
+                            </div>
+                           
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="date">Appointment date</label>
+                                    <input type="date" readonly class="form-control" value="{{date}}" name="date" id="date" placeholder="Date">
+                                </div>
+                            </div>
+                            <div class="col-md-6"> 
+                                <div class="form-group">
+                                    <label class="label" for="time">Appoinment time</label>
+                                    <input type="time" readonly class="form-control" value="{{time}}" name="time" id="time" placeholder="Time">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6"> 
+                                <div class="form-group">
+                                    <label class="label" for="category">Category</label>
+                                    <input type="text" readonly class="form-control" value="{{category}}" id="category_name" >
+                                    <input type="text" readonly hidden class="form-control" name="category_id" value="{{category.id}}" id="category_id" >
+                                    <label class="label" for="package_id">Package</label>
+                                    <input type="text" readonly class="form-control" value="{{ package.name }}" id="package_id" >
+                                    <input type="text" hidden readonly class="form-control" name="package_id" value="{{ package.id}}" id="package_id" >
+                                </div>
+                            </div>
+                         
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="submit" value="Continue" class="btn btn-primary">
+                                    <div class="submitting"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+           
+</section>
+
+{% endblock %}
